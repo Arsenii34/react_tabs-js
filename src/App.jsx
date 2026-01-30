@@ -10,9 +10,10 @@ export const tabs = [
 ];
 
 
-export const App = () => (
-  const [tabses setTabses] = useState('');
-  <div className="section">
+export const App = () => {
+  const [tabses, setTabses] = useState('');
+return(
+<div className="section">
     <h1 className="title">Selected tab is {tabses.title}</h1>
 
     <div data-cy="TabsComponent">
@@ -32,4 +33,6 @@ export const App = () => (
       </div>
     </div>
   </div>
-);
+)
+
+};
