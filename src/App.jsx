@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Tabs } from './components/Tabs/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -12,6 +13,12 @@ export const tabs = [
 
 export const App = () => {
   const [tabses, setTabses] = useState('');
+  const activeTabId = tabs.find(tab => tab.id === activeTabId || tabs[0]);
+
+  const onTabSelected = (tabId) => {
+     setTabses(tabId);
+  }
+
 return(
 <div className="section">
     <h1 className="title">Selected tab is {tabses.title}</h1>
