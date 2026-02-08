@@ -1,17 +1,19 @@
 import { tabs } from "../../App";
 
-const activeTabId = tabs[0].id
-const activeTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
 
-export const Tabs = ({ tabs, onTabSelected }) => {
+
+
+export const Tabs = ({ tabs, activeTab, onTabSelected }) => {
+
   return (
     tabs.map(tab => (
-     <div 
-       data-cy="TabsComponent" 
+     <div
+       data-cy="TabsComponent"
        key={tab.id}
      >
 
     <div className="tabs is-boxed">
+      <h1 className="title">Selected tab is {activeTab.title}</h1>
       <ul>
         <li
           className={activeTab.id === tab.id?'is-active':''}
@@ -27,7 +29,7 @@ export const Tabs = ({ tabs, onTabSelected }) => {
     </div>
 
   <div className="block" data-cy="TabContent">
-    {tab.content}
+    {activeTab.content}
   </div>
 
     </div>
