@@ -6,26 +6,27 @@ import { tabs } from "../../App";
 export const Tabs = ({ tabs, activeTab, onTabSelected }) => {
 
   return (
-    tabs.map(tab => (
      <div
        data-cy="TabsComponent"
-       key={tab.id}
      >
 
     <div className="tabs is-boxed">
-      <h1 className="title">Selected tab is {activeTab.title}</h1>
-      <ul>
+
+        <ul>
+          {tabs.map(tab => (
         <li
           className={activeTab.id === tab.id?'is-active':''}
           data-cy="Tab"
           key={tab.id}
          >
-          <a onClick={() => tab.id !== activeTab?onTabSelected(tab.id):null}
+          <a onClick={() => tab.id !== activeTab.id?onTabSelected(tab.id):null}
             href={`#${tab.id}`} data-cy="TabLink">
             {tab.title}
           </a>
         </li>
+         ))}
       </ul>
+
     </div>
 
   <div className="block" data-cy="TabContent">
@@ -33,6 +34,6 @@ export const Tabs = ({ tabs, activeTab, onTabSelected }) => {
   </div>
 
     </div>
-))
+
   )
 };
