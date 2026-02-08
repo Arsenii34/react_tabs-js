@@ -11,34 +11,24 @@ export const tabs = [
 ];
 
 
-export const App = () => {
-  const [tabses, setTabses] = useState('');
-  const activeTabId = tabs.find(tab => tab.id === activeTabId || tabs[0]);
 
+export const App = () => {
   const onTabSelected = (tabId) => {
-     setTabses(tabId);
-  }
+  const tad = tabs.find(tab => tab.id === tabId);
+  setTabses(tad);
+}
+  const [tabses, setTabses] = useState(tabs[0]);
+
 
 return(
 <div className="section">
     <h1 className="title">Selected tab is {tabses.title}</h1>
 
-    <div data-cy="TabsComponent">
-      <div className="tabs is-boxed">
-        <ul>
-          <Tabs
-            tabs={tabs}
-            activeTabId={activeTabId}
-            onTabSelected={handleSelect}
-          />
+<Tabs
+        tabs={tabs}
+        onTabSelected={onTabSelected}
+      />
 
-        </ul>
-      </div>
-
-      <div className="block" data-cy="TabContent">
-        {tabses.content}
-      </div>
-    </div>
   </div>
 )
 
