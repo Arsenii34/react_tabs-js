@@ -18,9 +18,9 @@ export const App = () => {
     setTabses(tad);
   }
   const activeTabId = tabs[0].id;
-  const activeTab = tabses;
-  const [tabses, setTabses] = useState(tabs[0]);
 
+  const [tabses, setTabses] = useState(tabs[0]);
+  const activeTab = tabses;
 
   return (
     <div className="section">
