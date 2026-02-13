@@ -13,13 +13,15 @@ export const tabs = [
 
 
 export const App = () => {
+
+
+
+  const [tabses, setTabses] = useState(tabs[0]);
   const onTabSelected = (tabId) => {
     const tad = tabs.find(tab => tab.id === tabId);
     setTabses(tad);
   }
   const activeTabId = tabs[0].id;
-
-  const [tabses, setTabses] = useState(tabs[0]);
   const activeTab = tabses;
 
   return (
