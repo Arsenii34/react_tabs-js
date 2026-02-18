@@ -1,9 +1,7 @@
-import { tabs } from "../../App";
 
+export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
+const active = tabs.find(t => t.id === activeTabId) || tabs[0];
 
-
-
-export const Tabs = ({ tabs, activeTab, onTabSelected }) => {
 
   return (
      <div
@@ -15,11 +13,11 @@ export const Tabs = ({ tabs, activeTab, onTabSelected }) => {
         <ul>
           {tabs.map(tab => (
         <li
-          className={activeTab.id === tab.id?'is-active':''}
+          className={active.id === tab.id?'is-active':''}
           data-cy="Tab"
           key={tab.id}
          >
-          <a onClick={() => tab.id !== activeTab.id?onTabSelected(tab.id):null}
+          <a onClick={() => tab.id !== active.id?onTabSelected(tab.id):null}
             href={`#${tab.id}`} data-cy="TabLink">
             {tab.title}
           </a>
@@ -30,7 +28,7 @@ export const Tabs = ({ tabs, activeTab, onTabSelected }) => {
     </div>
 
   <div className="block" data-cy="TabContent">
-    {activeTab.content}
+    {active.content}
   </div>
 
     </div>
